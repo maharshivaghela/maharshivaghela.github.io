@@ -396,6 +396,7 @@ section h2 {
 }
 
 #contact ul li a {
+    color: var(--secondary-color);
     text-decoration: none;
 }
 
