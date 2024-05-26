@@ -129,7 +129,7 @@ section h2 {
 /* Mobile view adjustments */
 @media screen and (max-width: 767px) {
     body {
-        font-size:small;
+        font-size:medium;
     }
 
     .nav-container {
@@ -453,8 +453,8 @@ section h2 {
     }
 
     .intro-photo lottie-player {
-        width: 200%; /* Adjust as necessary to cover the desired area */
-        height: 200%; /* Adjust as necessary to cover the desired area */
+        width: 350px; /* Adjust as necessary to cover the desired area */
+        height: 350px; /* Adjust as necessary to cover the desired area */
     }
 }
 
@@ -479,14 +479,9 @@ section h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 120%; /* Adjust as necessary to cover the desired area */
-    height: 120%; /* Adjust as necessary to cover the desired area */
+    width: 400px; /* Adjust as necessary to cover the desired area */
+    height: 400px; /* Adjust as necessary to cover the desired area */
     z-index: 1; /* Ensure the Lottie player is below the photo */
-}
-
-/* Responsive styles for the intro photo */
-@media (max-width: 768px) {
-
 }
 
 #arrow-down {
