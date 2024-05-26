@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maharshi Vaghela - Resume</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -25,16 +26,21 @@
             background-color: #fff;
             z-index: 9999;
             opacity: 1;
-            transition: opacity 1s ease-out;
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
         }
         #loader.fade-out {
+            transform: translateY(-100%);
             opacity: 0;
-            visibility: hidden;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
     <section id="loader">
+        <!-- <lottie-player src="https://lottie.host/318aba44-18c7-4a57-a7fa-a3455b5b4236/MqTFSPbetb.json" background="transparent" speed="1" style="width: 400px; height: 400px" loop autoplay direction="1" mode="normal"></lottie-player> -->
         <dotlottie-player src="https://lottie.host/f13c880c-95ff-48b5-93d8-c99cf25da5ae/X8709o1pdu.json" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></dotlottie-player>    
     </section>
 
@@ -52,7 +58,7 @@
                 <div class="nav-right">
                     <ul>
                         <li><a onclick="goToSection('about', false)">About</a></li>
-                        <li><a onclick="goToSection('work', false)">Work</a></li>
+                        <li><a onclick="goToSection('experience', false)">Work</a></li>
                         <li><a onclick="goToSection('testimonials', false)">Projects</a></li>
                         <li><a onclick="goToSection('contact', false)">Contact</a></li>
                         <li><a onclick="">Download CV</a></li>
@@ -78,15 +84,12 @@
                 <!-- <h4>Available for new projects</h4> -->
             </div>
             <div class="intro-photo">
-                <!-- <lottie-player src="https://lottie.host/1093cd05-4ae9-4f24-b532-8e652c34d996/FMyhb2uN73.json" background="#11142e" speed="1" style="width: 400px; height: 400px" loop autoplay direction="1" mode="normal"></lottie-player> -->
-                <lottie-player src="https://lottie.host/4bf4d3e0-e0e9-40c3-a7ea-b8c0b489e83d/A6yk7Dg1JZ.json" background="#11142e" speed="1" style="width: 400px; height: 400px" loop autoplay direction="1" mode="normal"></lottie-player>
+                <!-- <lottie-player src="https://lottie.host/1093cd05-4ae9-4f24-b532-8e652c34d996/FMyhb2uN73.json" background="#11142e" speed="0.7" style="width: 300px; height: 300px" loop autoplay direction="1" mode="normal"></lottie-player> -->
+                <lottie-player src="https://lottie.host/4bf4d3e0-e0e9-40c3-a7ea-b8c0b489e83d/A6yk7Dg1JZ.json" background="#11142e" speed="1" style="width: 450px; height: 450px" loop autoplay direction="1" mode="normal"></lottie-player>
                 <img src="./assets/images/my_photo.jpeg" alt="Maharshi Vaghela">
             </div>
         </div>
     </section>
-
-    <lottie-player src="https://lottie.host/705d750a-d2ad-4924-bd99-24ee6c381d05/zGXYinM7bl.json" background="#11142e" speed="1" style="width: 100%; height: 300px" loop autoplay direction="1" mode="normal"></lottie-player>
-
 
     <section id="arrow-down">
         <div>
@@ -120,7 +123,6 @@
             <li><img src="./assets/images/dev_iconss/mariadb/mariadb-original.svg" alt="MariaDB"></li>
             <li><img src="./assets/images/dev_iconss/elasticsearch/elasticsearch-original.svg" alt="Elastic Search"></li>
         </ul>
-        
     </section>    
     
     <section id="experience">
@@ -197,7 +199,7 @@
                 setTimeout(function() {
                     loader.style.display = 'none';
                 }, 1000); // Match this to the transition duration in CSS
-            }, 4000);
+            }, 3000);
         });
     </script>
     <!-- Bootstrap v5.0 -->
