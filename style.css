@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    color: var(--secondary-color);
+    color: rgba(183, 180, 187, 1);
+    /* color: var(--secondary-color); */
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -14,9 +15,17 @@ body {
     /* cursor: url('./assets/images/icons8-select-cursor-48.png') 16 16, auto; */
 }
 
-/* h1{
-    font-size: 40px;
-} */
+h2 {
+    font-size: 2em; /* Adjust as needed */
+    font-weight: bold; /* Adjust as needed */
+    color: var(--secondary-color);
+    background: linear-gradient(to right, rgba(55, 84, 251, 1), rgba(252, 1, 255, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* text-fill-color: transparent; */
+}
+
 
 button {
     border: none;
@@ -51,6 +60,12 @@ section {
     padding: 2rem;
     margin: 0 auto;
     max-width: 900px;
+}
+
+.separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #line {
@@ -333,14 +348,18 @@ section h2 {
 
 @media (max-width: 767px) {
     .skills-list {
-        flex-direction: column;
         align-items: center;
     }
 
     .skills-list li {
-        width: 80%;
+        width: 20%;
         margin: 0.5rem 0;
     }
+}
+
+
+#about p {
+    text-align: center;
 }
 
 #about ul li, #skills ul li {
@@ -354,12 +373,16 @@ section h2 {
     background: var(--primary-color);
     margin: 20px 0;
     padding: 20px;
-    border: 0.5px solid var(--secondary-color);
-    border-radius: 5px;
+    border: 1px solid rgba(232, 232, 232, 0.25);
+    border-radius: 15px;
 }
 
 .testimonial-item p {
     margin: 5px 0;
+}
+
+#contact {
+    text-align: center;
 }
 
 #contact ul {
