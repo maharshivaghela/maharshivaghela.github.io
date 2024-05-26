@@ -411,6 +411,32 @@ section h2 {
     margin: 0 auto;
 }
 
+.intro-photo {
+    z-index: -100;
+    position: relative;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.intro-photo img {
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2; /* Ensure the photo is above the Lottie player */
+}
+
+.intro-photo lottie-player {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; /* Adjust as necessary to cover the desired area */
+    height: 400px; /* Adjust as necessary to cover the desired area */
+    z-index: 1; /* Ensure the Lottie player is below the photo */
+}
+
 /* Responsive styles for the intro section */
 @media (max-width: 768px) {
     .intro-container {
@@ -438,14 +464,7 @@ section h2 {
         flex-direction: column;
         text-align: center;
     }
-    
-    .intro-photo {
-        order: 1;
-        margin-bottom: 1rem;
-        width: 70%;
-        z-index: -100;
-    }
-    
+
     .intro-text {
         order: 2;
         width: 100%;
@@ -456,32 +475,6 @@ section h2 {
         width: 350px; /* Adjust as necessary to cover the desired area */
         height: 350px; /* Adjust as necessary to cover the desired area */
     }
-}
-
-.intro-photo {
-    z-index: -100;
-    position: relative;
-    width: 30%;
-    display: flex;
-    justify-content: center;
-}
-
-.intro-photo img {
-    border-radius: 50%;
-    max-width: 100%;
-    height: auto;
-    position: relative;
-    z-index: 2; /* Ensure the photo is above the Lottie player */
-}
-
-.intro-photo lottie-player {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px; /* Adjust as necessary to cover the desired area */
-    height: 400px; /* Adjust as necessary to cover the desired area */
-    z-index: 1; /* Ensure the Lottie player is below the photo */
 }
 
 #arrow-down {
