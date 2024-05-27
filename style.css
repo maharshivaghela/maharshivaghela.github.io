@@ -19,7 +19,7 @@ h2 {
     font-size: 2em; /* Adjust as needed */
     font-weight: bold; /* Adjust as needed */
     color: var(--secondary-color);
-    background: linear-gradient(to right, rgba(55, 84, 251, 1), rgba(252, 1, 255, 1));
+    background: linear-gradient(to right, rgb(73, 86, 161), rgb(106, 245, 255));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -404,7 +404,7 @@ section h2 {
 #intro {
     padding: 2rem;
     margin: 0 auto;
-    margin-top: 2rem;
+    margin-top: 3rem;
     max-width: 900px;
 }
 .intro-container {
@@ -505,4 +505,67 @@ section h2 {
     justify-content: center;
     align-items: center;
     font-size: xx-large;
+}
+
+.company-logo {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px; /* Space between logo and company name */
+}
+
+#contact {
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-container {
+    display: flex;
+    /* justify-content:flex-start; */
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-info, .contact-links {
+    flex: 1;
+    min-width: 250px;
+}
+
+.contact-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-links li {
+    margin-bottom: 10px;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.bi {
+    margin-right: 5px;
+}
+
+@media (max-width: 600px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+#separator {
+    width: 80%;
+    border: none;
+    border-top: 1px solid var(--primary-light-color);
+    margin: 20px auto;
+}
+
+#copyright {
+    margin-top: 10px;
 }

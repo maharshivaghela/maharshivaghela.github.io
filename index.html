@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maharshi Vaghela - Resume</title>
-    
+    <link rel="shortcut icon" href="./assets/images/logo/MvLogo.png" type="image/x-icon">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -59,6 +60,7 @@
                 <div class="nav-right">
                     <ul>
                         <li><a onclick="goToSection('about', false)">About</a></li>
+                        <li><a onclick="goToSection('skills', false)">Skills</a></li>
                         <li><a onclick="goToSection('experience', false)">Work</a></li>
                         <li><a onclick="goToSection('testimonials', false)">Projects</a></li>
                         <li><a onclick="goToSection('contact', false)">Contact</a></li>
@@ -138,7 +140,10 @@
         <h2>Experience</h2>
         <div class="experience-item">
             <h3>Software Development Engineer 2</h3>
-            <p>PeopleStrong Technologies</p>
+            <p>
+                <!-- <img src="./assets/images/company_logos/peoplestrong.png" alt="PeopleStrong Technologies Logo" class="company-logo"> -->
+                PeopleStrong Technologies
+            </p>
             <p>Dec 2023 – Present | Gurugram, India</p>
             <ul>
                 <li>Delivered WhatsApp-based onboarding, reducing admin burden by 20% and boosting candidate satisfaction by 30%.</li>
@@ -193,16 +198,23 @@
     
     <section id="contact">
         <h2>Get in touch</h2>
-        <p>What’s next? Feel free to reach out to me if you're looking for a Developer, have a query, or simply want to connect.</p>
-        <p>Email: maharshivaghela1712@gmail.com</p>
-        <p>Phone: +91-9712209887</p>
-        <p>You may also find me on these platforms!</p>
-        <ul>
-            <li><a href="https://www.linkedin.com/in/maharshi-vaghela-17122000"><i class="bi bi-linkedin"></i> LinkedIn</a></li>
-            <li><a href="https://github.com/maharshi1712"><i class="bi bi-github"></i> GitHub</a></li>
-        </ul>
-        <p>2024 | Designed and Coded with ❤ by Maharshi Vaghela</p>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p>Email: maharshivaghela1712@gmail.com</p>
+                <p>Phone: +91-9712209887</p>
+            </div>
+            <div class="contact-links">
+                <p>You may also find me on these platforms!</p>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/maharshi-vaghela-17122000"><i class="bi bi-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="https://github.com/maharshi1712"><i class="bi bi-github"></i> GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr id="separator">
+        <p id="copyright">2024 | Designed and Coded with ❤ by <br>Maharshi Vaghela</p>
     </section>
+    
 
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -216,7 +228,7 @@
                 setTimeout(function() {
                     loader.style.display = 'none';
                 }, 1000); // Match this to the transition duration in CSS
-            }, 3000);
+            }, 4000);
         });
     </script>
     <!-- Bootstrap v5.0 -->
