@@ -15,6 +15,17 @@ body {
     /* cursor: url('./assets/images/icons8-select-cursor-48.png') 16 16, auto; */
 }
 
+h1 {
+    font-size: 1.5em; /* Adjust as needed */
+    font-weight: bold; /* Adjust as needed */
+    color: var(--secondary-color);
+    background: linear-gradient(to right, rgb(124, 141, 240), rgb(106, 245, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* text-fill-color: transparent; */
+}
+
 h2 {
     font-size: 2em; /* Adjust as needed */
     font-weight: bold; /* Adjust as needed */
