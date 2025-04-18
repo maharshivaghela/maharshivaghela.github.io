@@ -175,6 +175,282 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Animation for Education section
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to check if element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+            rect.bottom >= 0
+        );
+    }
+    
+    // Function to animate education items when they come into view
+    function animateEducationItems() {
+        const educationItems = document.querySelectorAll('.education-item');
+        
+        educationItems.forEach(item => {
+            if (isInViewport(item)) {
+                item.classList.add('animate');
+            }
+        });
+    }
+    
+    // Run on load
+    animateEducationItems();
+    
+    // Run on scroll
+    window.addEventListener('scroll', animateEducationItems);
+    
+    // Add hover effects for contact cards
+    const contactCards = document.querySelectorAll('.contact-card');
+    contactCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+            this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+            this.style.boxShadow = '';
+        });
+    });
+    
+    // Add hover effects for social links
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateX(5px)';
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    });
+    
+    // Animate highlight tags on hover
+    const highlightTags = document.querySelectorAll('.highlight-tag');
+    highlightTags.forEach(tag => {
+        tag.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+        });
+        
+        tag.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    });
+});
+
+
+// Typing effect for contact intro
+function typeContactIntro() {
+    const contactIntro = document.querySelector('.contact-intro p');
+    if (!contactIntro) return;
+    
+    const text = contactIntro.textContent;
+    contactIntro.textContent = '';
+    
+    let i = 0;
+    function type() {
+        if (i < text.length) {
+            contactIntro.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, 30);
+        }
+    }
+    
+    // Start typing when the section comes into view
+    function checkIfInView() {
+        const rect = contactIntro.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0) {
+            type();
+            window.removeEventListener('scroll', checkIfInView);
+        }
+    }
+    
+    window.addEventListener('scroll', checkIfInView);
+    checkIfInView(); // Check on load
+}
+
+document.addEventListener('DOMContentLoaded', typeContactIntro);
+
+
+// Portfolio filtering and animations
+document.addEventListener('DOMContentLoaded', function() {
+    // Set up portfolio item animations with staggered delay
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    portfolioItems.forEach((item, index) => {
+        item.style.setProperty('--i', index + 1);
+    });
+    
+    // Portfolio filtering functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioGrid = document.querySelector('.portfolio-grid');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get filter value
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Filter portfolio items
+            portfolioItems.forEach(item => {
+                const categories = item.getAttribute('data-category').split(',');
+                
+                // Reset animations
+                item.style.animation = 'none';
+                item.offsetHeight; // Trigger reflow
+                
+                if (filterValue === 'all' || categories.includes(filterValue)) {
+                    item.style.display = 'flex';
+                    // Re-apply animation with delay
+                    setTimeout(() => {
+                        item.style.animation = 'fadeInUp 0.6s forwards';
+                    }, 10);
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Optional: Smooth height transition for the grid
+            portfolioGrid.style.minHeight = portfolioGrid.offsetHeight + 'px';
+            setTimeout(() => {
+                portfolioGrid.style.minHeight = '0';
+            }, 600);
+        });
+    });
+    
+        // Add hover effects for portfolio items
+        portfolioItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.querySelector('.portfolio-icon').style.transform = 'scale(1.1) rotate(10deg)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.querySelector('.portfolio-icon').style.transform = '';
+            });
+            
+            // Add hover effects for tech tags
+            const techTags = item.querySelectorAll('.tech-tag');
+            techTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.background = 'rgba(106, 245, 255, 0.2)';
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                    this.style.background = '';
+                });
+            });
+            
+            // Add hover effects for portfolio links
+            const portfolioLinks = item.querySelectorAll('.portfolio-link');
+            portfolioLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.background = 'var(--accent-color)';
+                    this.style.color = 'var(--primary-color)';
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.background = '';
+                    this.style.color = '';
+                    this.style.transform = '';
+                });
+            });
+        });
+        
+        // Animate portfolio items when they come into view
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        }
+        
+        function animatePortfolioItems() {
+            portfolioItems.forEach((item, index) => {
+                if (isInViewport(item) && !item.classList.contains('animated')) {
+                    item.classList.add('animated');
+                    item.style.animation = 'fadeInUp 0.6s forwards';
+                    item.style.animationDelay = `${index * 0.1}s`;
+                }
+            });
+        }
+        
+        // Run on load and scroll
+        animatePortfolioItems();
+        window.addEventListener('scroll', animatePortfolioItems);
+        
+        // Add smooth hover effect for the View All Projects button
+        const portfolioCta = document.querySelector('.btn-portfolio');
+        if (portfolioCta) {
+            portfolioCta.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+            });
+            
+            portfolioCta.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        }
+    });    
+
+
+    // Add this to your script.js
+function animateCounters() {
+    const counters = document.querySelectorAll('.counter-number');
+    const speed = 200; // The lower the faster
+    
+    counters.forEach(counter => {
+        if (counter.classList.contains('counted')) return;
+        
+        const target = +counter.getAttribute('data-count');
+        let count = 0;
+        
+        const updateCount = () => {
+            const increment = target / speed;
+            
+            if (count < target) {
+                count += increment;
+                counter.textContent = Math.ceil(count);
+                setTimeout(updateCount, 1);
+            } else {
+                counter.textContent = target;
+                counter.classList.add('counted');
+            }
+        };
+        
+        // Only start counting when the element is in viewport
+        const counterObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                updateCount();
+                counterObserver.disconnect();
+            }
+        }, { threshold: 0.5 });
+        
+        counterObserver.observe(counter);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ... existing code ...
+    
+    // Initialize counter animation
+    animateCounters();
+});
+
+
+
 
 // document.addEventListener('DOMContentLoaded', function() {
     //     const navToggle = document.getElementById('nav-toggle');
