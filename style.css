@@ -1554,7 +1554,7 @@ section:nth-child(4) {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: -35px auto 1rem;
+    margin: 30px auto 1rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 3;
@@ -1700,7 +1700,7 @@ section:nth-child(4) {
     .portfolio-icon {
         width: 60px;
         height: 60px;
-        margin: -30px auto 1rem;
+        margin: 30px auto 1rem;
     }
     
     .portfolio-icon i {
