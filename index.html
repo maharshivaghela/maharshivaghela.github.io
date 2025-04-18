@@ -1,237 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maharshi Vaghela - Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Maharshi Vaghela | Software Engineer</title>
     <link rel="shortcut icon" href="./assets/images/logo/MvLogo.png" type="image/x-icon">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Raleway:wght@300;400;600&display=swap"
+        rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Loader Styles */
-        #loader {
-            padding: 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #fff;
-            z-index: 9999;
-            opacity: 1;
-            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
-        }
-        #loader.fade-out {
-            transform: translateY(-100%);
-            opacity: 0;
-        }
-
-        .hidden {
-            display: none;
-        }
-    </style>
 </head>
-<body>
-    <section id="loader">
-        <!-- <lottie-player src="https://lottie.host/318aba44-18c7-4a57-a7fa-a3455b5b4236/MqTFSPbetb.json" background="transparent" speed="1" style="width: 200px; height: 200px" loop autoplay direction="1" mode="normal"></lottie-player> -->
-        <dotlottie-player src="https://lottie.host/f13c880c-95ff-48b5-93d8-c99cf25da5ae/X8709o1pdu.json" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></dotlottie-player>    
-    </section>
 
-    <!-- <section style="width: 300px; height: 300px;">
-        <dotlottie-player src="https://lottie.host/3624f9bf-c020-4490-90b2-170bf85f2d3d/Oraa7rY9ah.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+<body>
+    <!-- <section id="loader">
+        <dotlottie-player src="https://lottie.host/f13c880c-95ff-48b5-93d8-c99cf25da5ae/X8709o1pdu.json"
+            background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></dotlottie-player>
     </section> -->
 
-    <header>
-        <nav id="navbar">
-            <div class="nav-container">
-                <div class="nav-left">
-                    <img src="./assets/images/logo/MvLogo.png" alt="Maharshi Vaghela" class="logo">
-                    <!-- <a href="#" class="logo"></a> -->
+    <div id="content-wrapper" class="visible">
+
+        <header>
+            <nav id="navbar">
+                <div class="nav-container">
+                    <div class="nav-left">
+                        <a href="index.html">
+                            <img src="./assets/images/logo/MvLogo.png" alt="Maharshi Vaghela" class="logo">
+                        </a>
+                    </div>
+                    <div class="nav-right">
+                        <div class="hamburger-menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <ul>
+                            <li><a onclick="goToSection('about', false)">About</a></li>
+                            <li><a onclick="goToSection('skills', false)">Skills</a></li>
+                            <li><a onclick="goToSection('experience', false)">Work</a></li>
+                            <li><a onclick="goToSection('portfolio', false)">Portfolio</a></li>
+                            <li><a onclick="goToSection('contact', false)">Contact</a></li>
+                            <li><a href="./assets/Maharshi_s_Resume.pdf" download="Maharshi_Vaghela_CV.pdf">Download CV</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="nav-right">
-                    <ul>
-                        <li><a onclick="goToSection('about', false)">About</a></li>
-                        <li><a onclick="goToSection('skills', false)">Skills</a></li>
-                        <li><a onclick="goToSection('experience', false)">Work</a></li>
-                        <li><a onclick="goToSection('testimonials', false)">Projects</a></li>
-                        <li><a onclick="goToSection('contact', false)">Contact</a></li>
-                        <li><a href="./assets/Maharshi_s_Resume.pdf" download="Maharshi_Vaghela_CV.pdf">Download CV</a></li>
-                    </ul>
-                    <div id="nav-toggle" class="nav-arrow" aria-label="Toggle Menu">
-                        <i class="bi bi-caret-left-fill"></i>
+            </nav>
+            <div class="menu-overlay"></div>
+        </header>        
+
+        <div class="line"></div>
+
+        <section id="intro">
+            <div class="intro-container">
+                <div class="intro-text">
+                    <h1>Maharshi Vaghela</h1>
+                    <div class="typing-container">
+                        <span class="static-text">I'm a </span>
+                        <span class="typing-text"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <p class="intro-description">Crafting scalable backend systems and elegant full-stack applications with 3+ years of professional experience.</p>
+                    <div class="intro-highlights">
+                        <div class="highlight-item">
+                            <i class="bi bi-code-square"></i>
+                            <span>Java, Golang, React, Angular</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="bi bi-hdd-stack"></i>
+                            <span>Microservices Architecture</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="bi bi-cloud"></i>
+                            <span>AWS & GCP</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="bi bi-palette"></i>
+                            <span>Web Designing (HTML, CSS, JS)</span>
+                        </div>
+                    </div>                    
+                    <div class="intro-cta">
+                        <a href="#contact" class="btn-contact" onclick="goToSection('contact', true)">Get In Touch</a>
+                        <a href="#portfolio" class="btn-portfolio-link" onclick="goToSection('portfolio', true)">View My Work</a>
+                    </div>
+                    <h4><i class="bi bi-geo-alt-fill"></i> Ahmedabad, India</h4>
+                </div>
+                <div class="intro-photo">
+                    <lottie-player src="https://lottie.host/4bf4d3e0-e0e9-40c3-a7ea-b8c0b489e83d/A6yk7Dg1JZ.json"
+                        background="#11142e" speed="1" loop autoplay direction="1" mode="normal"></lottie-player>
+                    <img src="./assets/images/my_photo.jpeg" alt="Maharshi Vaghela">
+                </div>
+            </div>
+        </section>              
+
+        <!-- <section id="arrow-down">
+            <div>
+                <button class="animated-button" onclick="goToSection('about', true)"><i
+                        class="bi bi-arrow-down-circle"></i></button>
+            </div>
+        </section> -->
+
+        <section class="separator">
+            <img src="./assets/images/separator.svg" alt="" srcset="">
+        </section>
+
+        <section id="about">
+            <h2>About me</h2>
+            <p>Hi, I'm Maharshi Vaghela, a passionate and results-driven Software Engineer with over 3+ years of professional experience in building scalable, high-performance backend systems and full-stack applications. Currently, I'm working at Swiggy, where I engineer robust solutions for ad-tech workflows using Golang, DynamoDB, Kafka, and AWS Textract.</p>
+            
+            <p>My journey started with a strong foundation at PeopleStrong, where I contributed to HR tech products, developed end-to-end features using Java, Spring Boot, Angular, and collaborated closely with cross-functional teams to deliver seamless user experiences. Over time, I've evolved into a versatile engineer who enjoys solving complex problems, optimizing systems, and automating workflows.</p>
+            
+            <div class="skills-highlight">
+                <h3>I bring to the table:</h3>
+                <div class="skills-cards">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h4>Frontend Expertise</h4>
+                        <p>Expert in designing websites and frontend development with Angular, React, TypeScript, and modern CSS frameworks.</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="bi bi-server"></i>
+                        </div>
+                        <h4>Backend Engineering</h4>
+                        <p>Solid background in backend engineering, distributed systems, and microservices architecture.</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <h4>Tech Stack Mastery</h4>
+                        <p>Hands-on expertise in Python, Golang, Java, Spring Boot, Kafka, Redis, Docker, Kubernetes, and databases.</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="bi bi-cloud-check"></i>
+                        </div>
+                        <h4>Cloud & DevOps</h4>
+                        <p>Experience with AWS & GCP, CI/CD pipelines, and observability tools for robust deployments.</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="bi bi-speedometer2"></i>
+                        </div>
+                        <h4>Quality Focus</h4>
+                        <p>A keen eye for performance, security, and maintainability in all projects.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4>Team Collaboration</h4>
+                        <p>Strong communication skills with experience in cross-functional teams and mentoring junior developers.</p>
                     </div>
                 </div>
             </div>
-        </nav>
-    </header>   
+            
+            <p>When I'm not coding, I enjoy contributing to hackathons (👑 Runner-Up at the Swiggy Instamart Hackathon), exploring system design challenges, or leveling up my public speaking and communication skills.</p>
+            
+            <p>Let's build something impactful together!</p>
+        </section>               
+        
 
-    <div class="line">
+         <!-- <section class="separator">
+            <img src="./assets/images/separator.svg" alt="" srcset="">
+        </section>
+        
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <p>The skills, tools and technologies I am really good at:</p>
+            <ul class="skills-list">
+                <li><img src="./assets/images/dev_iconss/java/java-original-wordmark.svg" alt="Java"></li>
+                <li><img src="./assets/images/dev_iconss/go/go-original.svg" alt="Go (Programming Language)"></li>
+                <li><img src="./assets/images/dev_iconss/python/python-original.svg" alt="Python"></li>
+                <li><img src="./assets/images/dev_iconss/cplusplus/cplusplus-original.svg" alt="C++"></li>
+                <li><img src="./assets/images/dev_iconss/javascript/javascript-original.svg" alt="JavaScript"></li>
+                <li><img src="./assets/images/dev_iconss/typescript/typescript-original.svg" alt="TypeScript"></li>
 
-    </div>
-    
-    <section id="intro">
-        <div class="intro-container">
-            <div class="intro-text">
-                <h1>Maharshi Vaghela</h1>
-                <p>I'm a software development engineer with a focus on creating exceptional digital experiences that are fast, accessible, visually appealing, and responsive. With a strong background in both front-end and back-end development, I have been contributing to impactful projects and honing my skills over the years.</p>
-                <h4>Ahmedabad, India</h4>
-                <!-- <h4>Available for new projects</h4> -->
-            </div>
-            <div class="intro-photo">
-                <!-- <lottie-player src="https://lottie.host/1093cd05-4ae9-4f24-b532-8e652c34d996/FMyhb2uN73.json" background="#11142e" speed="0.7" style="width: 300px; height: 300px" loop autoplay direction="1" mode="normal"></lottie-player> -->
-                <lottie-player src="https://lottie.host/4bf4d3e0-e0e9-40c3-a7ea-b8c0b489e83d/A6yk7Dg1JZ.json" background="#11142e" speed="1" loop autoplay direction="1" mode="normal"></lottie-player>
-                <img src="./assets/images/my_photo.jpeg" alt="Maharshi Vaghela">
-            </div>
-        </div>
-    </section>
+                <li><img src="./assets/images/dev_iconss/spring/spring-original-wordmark.svg" alt="Spring Boot"></li>
+                <li><img src="./assets/images/dev_iconss/angular/angular-original.svg" alt="Angular"></li>
+                <li><img src="./assets/images/dev_iconss/bootstrap/bootstrap-plain.svg" alt="Bootstrap"></li>
+                <li><img src="./assets/images/dev_iconss/jquery/jquery-original.svg" alt="jQuery"></li>
+                <li><img src="./assets/images/dev_iconss/hibernate/hibernate-original-wordmark.svg" alt="Hibernate">
+                </li>
 
-    <section id="arrow-down">
-        <div>
-            <button class="animated-button" onclick="goToSection('about', true)"><i class="bi bi-arrow-down-circle"></i></button>
-        </div>
-    </section>
-    
-    <section id="about">
-        <h2>About me</h2>
-        <p>Hi, I'm Maharshi Vaghela, a software development engineer specializing in full stack development with expertise in Java, Spring Boot, and Angular. I earned my B.Tech in Information and Communication Technology from Dhirubhai Ambani Institute of Information and Communication Technology.</p>
-        <p>Currently, I work as a Software Development Engineer 2 at PeopleStrong Technologies in Gurugram, India, where I develop innovative solutions to enhance user satisfaction and streamline processes. Previously, I worked as a Software Development Engineer 1 and an Associate Software Engineer Trainee, gaining experience in bulk action features, AI-powered search functionalities, and survey systems.</p>
-        <p>I'm an avid learner and passionate about creating efficient digital solutions. When I'm not coding, I enjoy following tech trends and exploring innovative startups. Feel free to reach out if you're looking for a developer, have a query, or want to connect.</p>
-        <p>I'm available for freelance work, so don't hesitate to say hello!</p>
-    </section>  
+                <li><img src="./assets/images/dev_iconss/html5/html5-original.svg" alt="HTML5"></li>
+                <li><img src="./assets/images/dev_iconss/css3/css3-original.svg" alt="CSS3"></li>
+                <li><img src="./assets/images/dev_iconss/tomcat/tomcat-original.svg" alt="Tomcat"></li>
 
-    <section class="separator">
-        <img src="./assets/images/separator.svg" alt="" srcset="">
-    </section>
-    
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <p>The skills, tools and technologies I am really good at:</p>
-        <ul class="skills-list">
-            <li><img src="./assets/images/dev_iconss/java/java-original-wordmark.svg" alt="Java"></li>
-            <li><img src="./assets/images/dev_iconss/spring/spring-original-wordmark.svg" alt="Spring Boot"></li>
-            <li><img src="./assets/images/dev_iconss/hibernate/hibernate-original-wordmark.svg" alt="Hibernate"></li>
-            <li><img src="./assets/images/dev_iconss/angular/angular-original.svg" alt="Angular"></li>
-            <li><img src="./assets/images/dev_iconss/typescript/typescript-original.svg" alt="TypeScript"></li>
-            <li><img src="./assets/images/dev_iconss/html5/html5-original.svg" alt="HTML"></li>
-            <li><img src="./assets/images/dev_iconss/css3/css3-original.svg" alt="CSS"></li>
-            <li><img src="./assets/images/dev_iconss/cplusplus/cplusplus-original.svg" alt="C++ (Data Structures & Algorithms)"></li>
-            <li><img src="./assets/images/dev_iconss/redis/redis-original-wordmark.svg" alt="Redis"></li>
-            <li><img src="./assets/images/dev_iconss/mysql/mysql-original.svg" alt="MySQL"></li>
-            <li><img src="./assets/images/dev_iconss/postgresql/postgresql-original.svg" alt="PostgreSQL"></li>
-            <li><img src="./assets/images/dev_iconss/mariadb/mariadb-original.svg" alt="MariaDB"></li>
-            <li><img src="./assets/images/dev_iconss/elasticsearch/elasticsearch-original.svg" alt="Elastic Search"></li>
-        </ul>
-    </section>  
-    
-    <section class="separator">
-        <img src="./assets/images/separator.svg" alt="" srcset="">
-    </section>
-    
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="experience-item">
-            <h3>Software Development Engineer 2</h3>
-            <p>
-                <!-- <img src="./assets/images/company_logos/peoplestrong.png" alt="PeopleStrong Technologies Logo" class="company-logo"> -->
-                PeopleStrong Technologies
-            </p>
-            <p>Dec 2023 – Present | Gurugram, India</p>
-            <ul>
-                <li>Delivered WhatsApp-based onboarding, reducing admin burden by 20% and boosting candidate satisfaction by 30%.</li>
-                <li>Integrated e-signature solutions for secure electronic signatures.</li>
-                <li>Developed a servlet for e-signature provider callbacks with real-time updates.</li>
-                <li>Created a Scheduler for MySQL data push to SOLR for optimal search performance.</li>
-                <li>Enhanced Recruit & Onboarding with Gen-AI integration and OTP login.</li>
-                <li>Managed seamless transition from MySQL to MariaDB, improving user experience.</li>
+                <li><img src="./assets/images/dev_iconss/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
+                </li>
+                <li><img src="./assets/images/dev_iconss/docker/docker-original.svg" alt="Docker"></li>
+                <li><img src="./assets/images/dev_iconss/kubernetes/kubernetes-plain.svg" alt="Kubernetes"></li>
+                <li><img src="./assets/images/dev_iconss/git/git-original.svg" alt="Git"></li>
+
+                <li><img src="./assets/images/dev_iconss/mysql/mysql-original.svg" alt="MySQL"></li>
+                <li><img src="./assets/images/dev_iconss/postgresql/postgresql-original.svg" alt="PostgreSQL"></li>
+                <li><img src="./assets/images/dev_iconss/redis/redis-original-wordmark.svg" alt="Redis"></li>
+                <li><img src="./assets/images/dev_iconss/mariadb/mariadb-original.svg" alt="MariaDB"></li>
+
+                <li><img src="./assets/images/dev_iconss/elasticsearch/elasticsearch-original.svg" alt="Elasticsearch">
+                </li>
+                <li><img src="./assets/images/dev_iconss/grafana/grafana-original.svg" alt="Grafana"></li>
+
+                <li><img src="./assets/images/dev_iconss/kafka/kafka-original.svg" alt="Apache Kafka"></li>
             </ul>
-        </div>
-        <div class="experience-item">
-            <h3>Software Development Engineer 1</h3>
-            <p>PeopleStrong Technologies</p>
-            <p>Jul 2022 – Dec 2023 | Gurugram, India</p>
-            <ul>
-                <li>Developed bulk action features for streamlined workflows.</li>
-                <li>Collaborated on HR Tech Software projects, gathering requirements and designing solutions.</li>
-                <li>Implemented Naukri Job Posting/Applicant fetching integration.</li>
-                <li>Created a data scheduler for continuous SOLR data push.</li>
-                <li>Developed AI-powered search bar for efficient data retrieval.</li>
-                <li>Resolved customer issues with effective root-cause analyses.</li>
-                <li>Improved user experience with deep links for specific tasks.</li>
-            </ul>
-        </div>
-        <div class="experience-item">
-            <h3>Associate Software Engineer Trainee</h3>
-            <p>PeopleStrong Technologies</p>
-            <p>Jan 2022 – Jun 2022 | Remote, India</p>
-            <ul>
-                <li>Developed filtering functionalities in Job and Applicant modules.</li>
-                <li>Designed a Survey Mail System for automated user surveys using Cronjob.</li>
-            </ul>
-        </div>
-    </section>    
+        </section> -->
+        
+        <section class="separator">
+            <img src="./assets/images/separator.svg" alt="" srcset="">
+        </section>
 
-    <section class="separator">
-        <img src="./assets/images/separator.svg" alt="" srcset="">
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <div class="education-item">
-            <h3>B.Tech in Information and Communication Technology</h3>
-            <p>DA-IICT</p>
-            <p>Aug 2018 – May 2022 | Gandhinagar, Gujarat, India</p>
-        </div>
-    </section>
-
-    <section class="separator">
-        <img src="./assets/images/separator.svg" alt="" srcset="">
-    </section>
-    
-    <section id="contact">
-        <h2>Get in touch</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <p>Email: maharshivaghela1712@gmail.com</p>
-                <p>Phone: +91-9712209887</p>
-            </div>
-            <div class="contact-links">
-                <p>You may also find me on these platforms!</p>
-                <ul>
-                    <li><a href="https://www.linkedin.com/in/maharshi-vaghela-17122000"><i class="bi bi-linkedin"></i> LinkedIn</a></li>
-                    <li><a href="https://github.com/maharshi1712"><i class="bi bi-github"></i> GitHub</a></li>
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Software Engineer</h3>
+                <p class="company-name">
+                    <img src="./assets/images/company_logos/swiggy.png" alt="Swiggy Logo" class="company-logo"
+                        style="width: 40px; height: 40px;">
+                    Swiggy
+                </p>
+                <p class="job-duration">Jan 2025 – Present | Bengaluru, Karnataka, India · Remote</p>
+                <ul class="job-responsibilities">
+                    <li>Automated post-serving budget validation workflow for Instamart Ads to detect overspending
+                        beyond RO limits.</li>
+                    <li>Built a daily cron job in Golang to fetch and compare ad spend from DynamoDB and Elasticsearch.
+                    </li>
+                    <li>Integrated Kafka for event publishing and triggered email notifications using internal
+                        communication APIs.</li>
+                    <li>Developed APIs for secure RO document uploads, state management, and linked them with advertiser
+                        accounts.</li>
+                    <li>Contributed to Textract-based RO parsing and added service-level test cases for better
+                        reliability.</li>
                 </ul>
             </div>
-        </div>
-        <hr id="separator">
-        <p id="copyright">2024 | Designed and Coded with ❤ by <br>Maharshi Vaghela</p>
-    </section>
-    
 
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+            <div class="experience-item">
+                <h3>Software Engineer 2</h3>
+                <p class="company-name">
+                    <img src="./assets/images/company_logos/peoplestrong.png" alt="PeopleStrong Logo"
+                        class="company-logo">
+                    PeopleStrong Technologies
+                </p>
+                <p class="job-duration">Jan 2024 – Jan 2025 · 1 yr 1 mo | Gurugram, Haryana, India · On-site</p>
+                <ul class="job-responsibilities">
+                    <li>Delivered WhatsApp-based onboarding, reducing admin burden by 20% and boosting candidate
+                        satisfaction by 30%.</li>
+                    <li>Integrated e-signature solutions for secure electronic signatures.</li>
+                    <li>Developed a servlet for e-signature provider callbacks with real-time updates.</li>
+                    <li>Created a Scheduler for MySQL data push to SOLR for optimal search performance.</li>
+                    <li>Enhanced Recruit & Onboarding with Gen-AI integration and OTP login.</li>
+                    <li>Managed seamless transition from MySQL to MariaDB, improving user experience.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Software Engineer</h3>
+                <p class="company-name">
+                    <img src="./assets/images/company_logos/peoplestrong.png" alt="PeopleStrong Logo"
+                        class="company-logo">
+                    PeopleStrong Technologies
+                </p>
+                <p class="job-duration">Jul 2022 – Jan 2024 · 1 yr 7 mos | Gurugram, Haryana, India · Hybrid</p>
+                <ul class="job-responsibilities">
+                    <li>Developed and maintained software applications using Spring Boot, Java, Hibernate, and Angular.
+                    </li>
+                    <li>Collaborated with cross-functional teams to gather requirements and design solutions for HR Tech
+                        software projects, specifically in the Recruit product.</li>
+                    <li>Implemented and enhanced features within the Recruit product, such as filters, SSO
+                        implementation, Naukri integration, and ChatGPT integration.</li>
+                    <li>Wrote clean, efficient, and scalable code following coding standards and project requirements.
+                    </li>
+                    <li>Conducted code reviews, provided feedback, and ensured code quality among team members.</li>
+                    <li>Participated in Agile development methodologies, including sprint planning, stand-ups, and
+                        retrospectives.</li>
+                    <li>Collaborated with UI/UX designers to ensure a seamless user experience and responsive designs.
+                    </li>
+                    <li>Worked with databases like MySQL, PostgreSQL, and MariaDB to design and optimize schemas and
+                        queries.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Associate Software Engineer</h3>
+                <p class="company-name">
+                    <img src="./assets/images/company_logos/peoplestrong.png" alt="PeopleStrong Logo"
+                        class="company-logo">
+                    PeopleStrong Technologies
+                </p>
+                <p class="job-duration">Jan 2022 – Jun 2022 · 6 mos | Internship</p>
+                <ul class="job-responsibilities">
+                    <li>Developed filtering functionalities in Job and Applicant modules.</li>
+                    <li>Designed a Survey Mail System for automated user surveys using Cronjob.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="separator">
+            <img src="./assets/images/separator.svg" alt="" srcset="">
+        </section>
+
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <p>Check out some of my recent projects</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <a href="portfolio.html#project1" class="portfolio-link">
+                        <div class="portfolio-image">
+                            <img src="./assets/images/dev_icons/google-original.svg" alt="Project 1">
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Ad Budget Validation System</h3>
+                            <p>Golang, Kafka, DynamoDB, Elasticsearch</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <a href="portfolio.html#project2" class="portfolio-link">
+                        <div class="portfolio-image">
+                            <img src="./assets/images/dev_icons/java-original.svg" alt="Project 2">
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>WhatsApp Onboarding System</h3>
+                            <p>Spring Boot, Java, Angular</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <a href="portfolio.html#project3" class="portfolio-link">
+                        <div class="portfolio-image">
+                            <img src="./assets/images/dev_icons/spring-original.svg" alt="Project 3">
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>E-Signature Integration</h3>
+                            <p>Java, Spring Boot, REST APIs</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+           <!-- In the portfolio section of index.html, update the button link -->
+            <div class="portfolio-cta">
+                <a href="portfolio.html" class="btn-portfolio">View All Projects</a>
+            </div>
+
+        </section>
+
+        <section class="separator">
+            <img src="./assets/images/separator.svg" alt="" srcset="">
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>B.Tech in Information and Communication Technology</h3>
+                <p>DA-IICT</p>
+                <p>Aug 2018 – May 2022 | Gandhinagar, Gujarat, India</p>
+            </div>
+        </section>
+
+        <section class="separator">
+            <img src="./assets/images/separator.svg" alt="" srcset="">
+        </section>
+
+        <section id="contact">
+            <h2>Get in touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>Email: maharshivaghela1712@gmail.com</p>
+                    <p>Phone: +91-9712209887</p>
+                </div>
+                <div class="contact-links">
+                    <p>You may also find me on these platforms!</p>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/in/maharshi-vaghela-17122000"><i
+                                    class="bi bi-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://github.com/maharshi1712"><i class="bi bi-github"></i> GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr id="separator">
+            <p id="copyright">2025 | Designed and Coded with ❤ by <br>Maharshi Vaghela</p>
+        </section>
+    </div>
+
+
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="./script.js"></script>
-    <script>
-        // JavaScript to hide the loader after 3 seconds with fade out
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                const loader = document.getElementById('loader');
-                loader.classList.add('fade-out');
-                setTimeout(function() {
-                    loader.style.display = 'none';
-                }, 1000); // Match this to the transition duration in CSS
-            }, 4000);
-        });
-    </script>
-    <!-- Bootstrap v5.0 -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 </body>
+
 </html>
