@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maharshi Vaghela | Portfolio</title>
+    <link rel="shortcut icon" href="./assets/images/logo/MvLogo.png" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Portfolio Page Specific Styles */
+        .portfolio-header {
+            background: linear-gradient(to right, rgba(17, 20, 46, 0.9), rgba(17, 20, 46, 0.95));
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .portfolio-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .portfolio-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        .back-to-home {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--secondary-color);
+            padding: 0.7rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: background 0.3s ease, transform 0.3s ease;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .back-to-home:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-5px);
+        }
+        
+        .back-to-home i {
+            margin-right: 0.5rem;
+        }
+        
+        .project-filters {
+            display: flex;
+            justify-content: center; 
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem auto; 
+            padding: 0 1rem;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            color: var(--text-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0.5rem;
+            float: none;
+            display: inline-block;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: rgba(106, 245, 255, 0.3);
+        }
+        
+        .project-icon {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(73, 86, 161, 0.2), rgba(106, 245, 255, 0.1));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-icon::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(106, 245, 255, 0.1) 0%, rgba(17, 20, 46, 0) 70%);
+            top: -50%;
+            left: -50%;
+            animation: rotate 15s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .project-icon i {
+            font-size: 4rem;
+            color: var(--accent-color);
+            z-index: 2;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-icon i {
+            transform: scale(1.2);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(17, 20, 46, 0.7), rgba(17, 20, 46, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 5; /* Ensure overlay is above card content */
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .project-links {
+            display: flex;
+            justify-content: center; /* Center the links horizontally */
+            align-items: center; /* Center the links vertically */
+            gap: 1.5rem; /* Increase spacing between links */
+            z-index: 10;
+            width: 100%; /* Ensure full width */
+        }
+        
+        .project-link {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--secondary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            position: relative; /* Ensure proper positioning */
+        }
+        
+        .project-link i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Perfect centering of icons */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .project-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+            color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Alternative approach: permanent action buttons */
+        .project-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+        
+        .action-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--secondary-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-decoration: none;
+            min-width: 80px; /* Ensure minimum width */
+        }
+        
+        .action-btn:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .action-btn i {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .project-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .project-card:hover .project-title::after {
+            width: 100%;
+        }
+        
+        .project-description {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+        
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        
+        .tech-tag:hover {
+            background: rgba(106, 245, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Animation for project cards */
+        .project-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .projects-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 1.5rem;
+            }
+            
+            .portfolio-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .projects-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+            
+            .portfolio-header {
+                padding: 4rem 1rem;
+            }
+            
+            .portfolio-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .back-to-home {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .project-icon {
+                height: 150px;
+            }
+            
+            .project-icon i {
+                font-size: 3rem;
+            }
+            
+            .project-title {
+                font-size: 1.3rem;
+            }
+            
+            .project-content {
+                padding: 1.2rem;
+            }
+            
+            .action-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .portfolio-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .portfolio-header p {
+                font-size: 1rem;
+            }
+            
+            .project-filters {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .project-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .back-to-home {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .project-links {
+                gap: 1rem; 
+            }
+            
+            .project-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) {
+            .project-overlay {
+                opacity: 1;
+                background: linear-gradient(to bottom, rgba(17, 20, 46, 0.3), rgba(17, 20, 46, 0.6));
+            }
+            
+            .project-link {
+                background: rgba(255, 255, 255, 0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-to-home">
+        <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+    
+    <section class="portfolio-header">
+        <h1>My Portfolio</h1>
+        <p>Explore my recent projects and see how I solve complex problems with elegant solutions.</p>
+    </section>
+    
+    <section class="project-filters">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="backend">Backend</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+        <button class="filter-btn" data-filter="cloud">Cloud & DevOps</button>
+    </section>
+    
+    <div class="projects-container">
+        <!-- Project 1 -->
+        <div class="project-card" id="project1" data-category="backend,cloud">
+            <div class="project-icon">
+                <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <div class="project-overlay">
+                <div class="project-links">
+                    <a href="#" class="project-link" title="View Details">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="#" class="project-link" title="View Code">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="#" class="project-link" title="Live Demo">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Ad Budget Validation System</h3>
+                <p class="project-description">
+                    Automated post-serving budget validation workflow for Instamart Ads to detect overspending beyond RO limits. Built a daily cron job in Golang to fetch and compare ad spend from DynamoDB and Elasticsearch.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Golang</span>
+                    <span class="tech-tag">Kafka</span>
+                    <span class="tech-tag">DynamoDB</span>
+                    <span class="tech-tag">Elasticsearch</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card" id="project2" data-category="fullstack">
+            <div class="project-icon">
+                <i class="bi bi-chat-dots"></i>
+            </div>
+            <div class="project-overlay">
+                <div class="project-links">
+                    <a href="#" class="project-link" title="View Details">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="#" class="project-link" title="View Code">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="#" class="project-link" title="Live Demo">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">WhatsApp Onboarding System</h3>
+                <p class="project-description">
+                    Delivered WhatsApp-based onboarding, reducing admin burden by 20% and boosting candidate satisfaction by 30%. Integrated with WhatsApp Business API for seamless communication.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">WhatsApp API</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card" id="project3" data-category="backend">
+            <div class="project-icon">
+                <i class="bi bi-pen"></i>
+            </div>
+            <div class="project-overlay">
+                <div class="project-links">
+                    <a href="#" class="project-link" title="View Details">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="#" class="project-link" title="View Code">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="#" class="project-link" title="Live Demo">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">E-Signature Integration</h3>
+                <p class="project-description">
+                    Integrated e-signature solutions for secure electronic signatures. Developed a servlet for e-signature provider callbacks with real-time updates for document status tracking.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">REST APIs</span>
+                    <span class="tech-tag">OAuth</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project 4 -->
+        <div class="project-card" id="project4" data-category="backend,cloud">
+            <div class="project-icon">
+                <i class="bi bi-clock-history"></i>
+            </div>
+            <div class="project-overlay">
+                <div class="project-links">
+                    <a href="#" class="project-link" title="View Details">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="#" class="project-link" title="View Code">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="#" class="project-link" title="Live Demo">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Data Scheduler System</h3>
+                <p class="project-description">
+                    Created a Scheduler for MySQL data push to SOLR for optimal search performance. Implemented efficient data synchronization with minimal latency and resource usage.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">SOLR</span>
+                    <span class="tech-tag">Spring Batch</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project 5 -->
+        <div class="project-card" id="project5" data-category="fullstack,frontend">
+            <div class="project-icon">
+                <i class="bi bi-search"></i>
+            </div>
+            <div class="project-overlay">
+                <div class="project-links">
+                    <a href="#" class="project-link" title="View Details">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="#" class="project-link" title="View Code">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="#" class="project-link" title="Live Demo">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">AI-Powered Search Interface</h3>
+                <p class="project-description">
+                    Enhanced Recruit & Onboarding with Gen-AI integration and OTP login. Developed an intelligent search system with natural language processing capabilities.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">OpenAI API</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project 6 -->
+        <div class="project-card" id="project6" data-category="backend,cloud">
+            <div class="project-icon">
+                <i class="bi bi-database"></i>
+            </div>
+            <div class="project-overlay">
+                <div class="project-links">
+                    <a href="#" class="project-link" title="View Details">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="#" class="project-link" title="View Code">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="#" class="project-link" title="Live Demo">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Database Migration System</h3>
+                <p class="project-description">
+                    Managed seamless transition from MySQL to MariaDB, improving user experience. Implemented zero-downtime migration strategy with data verification and rollback capabilities.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">MariaDB</span>
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Shell Scripting</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Project filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'flex';
+                            // Reset animation to trigger it again
+                            card.style.animation = 'none';
+                            card.offsetHeight; // Force reflow
+                            card.style.animation = null;
+                        } else {
+                            const categories = card.getAttribute('data-category').split(',');
+                            if (categories.includes(filterValue)) {
+                                card.style.display = 'flex';
+                                // Reset animation to trigger it again
+                                card.style.animation = 'none';
+                                card.offsetHeight; // Force reflow
+                                card.style.animation = null;
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Add animation delay to project cards
+            projectCards.forEach((card, index) => {
+                card.style.animationDelay = `${0.1 * (index % 6)}s`;
+            });
+            
+            // Add hover effect for tech tags
+            const techTags = document.querySelectorAll('.tech-tag');
+            techTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
