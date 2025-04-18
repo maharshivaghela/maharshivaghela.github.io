@@ -313,48 +313,125 @@
 
         <section id="portfolio">
             <h2>Portfolio</h2>
-            <p>Check out some of my recent projects</p>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <a href="portfolio.html#project1" class="portfolio-link">
-                        <div class="portfolio-image">
-                            <img src="./assets/images/dev_icons/google-original.svg" alt="Project 1">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>Ad Budget Validation System</h3>
-                            <p>Golang, Kafka, DynamoDB, Elasticsearch</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="portfolio-item">
-                    <a href="portfolio.html#project2" class="portfolio-link">
-                        <div class="portfolio-image">
-                            <img src="./assets/images/dev_icons/java-original.svg" alt="Project 2">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>WhatsApp Onboarding System</h3>
-                            <p>Spring Boot, Java, Angular</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="portfolio-item">
-                    <a href="portfolio.html#project3" class="portfolio-link">
-                        <div class="portfolio-image">
-                            <img src="./assets/images/dev_icons/spring-original.svg" alt="Project 3">
-                        </div>
-                        <div class="portfolio-info">
-                            <h3>E-Signature Integration</h3>
-                            <p>Java, Spring Boot, REST APIs</p>
-                        </div>
-                    </a>
-                </div>
+            <div class="portfolio-intro">
+                <p>Check out some of my recent projects that showcase my technical skills and problem-solving abilities.</p>
             </div>
-           <!-- In the portfolio section of index.html, update the button link -->
-            <div class="portfolio-cta">
-                <a href="portfolio.html" class="btn-portfolio">View All Projects</a>
-            </div>
+            
+            <!-- <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="backend">Backend</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                <button class="filter-btn" data-filter="cloud">Cloud & DevOps</button>
+            </div> -->
 
+            <!-- Add this before the portfolio grid -->
+            <div class="portfolio-counter">
+                <div class="counter-item">
+                    <span class="counter-number" data-count="10">0</span>
+                    <span class="counter-label">Projects Completed</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" data-count="5">0</span>
+                    <span class="counter-label">Happy Clients</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" data-count="3">0</span>
+                    <span class="counter-label">Years Experience</span>
+                </div>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item" data-category="backend,cloud">
+                    <div class="portfolio-icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Ad Budget Validation System</h3>
+                        <p>Automated post-serving budget validation workflow for Instamart Ads to detect overspending beyond RO limits. Built a daily cron job in Golang to fetch and compare ad spend from DynamoDB and Elasticsearch.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Golang</span>
+                            <span class="tech-tag">Kafka</span>
+                            <span class="tech-tag">DynamoDB</span>
+                            <span class="tech-tag">Elasticsearch</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="portfolio.html#project1" class="portfolio-link">
+                                <i class="bi bi-eye"></i>
+                                <span>View Details</span>
+                            </a>
+                            <a href="#" class="portfolio-link">
+                                <i class="bi bi-github"></i>
+                                <span>View Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-category="backend,fullstack">
+                    <div class="portfolio-icon">
+                        <i class="bi bi-chat-dots"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>WhatsApp Onboarding System</h3>
+                        <p>Delivered WhatsApp-based onboarding, reducing admin burden by 20% and boosting candidate satisfaction by 30%. Integrated with Spring Boot backend and Angular frontend.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">WhatsApp API</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="portfolio.html#project2" class="portfolio-link">
+                                <i class="bi bi-eye"></i>
+                                <span>View Details</span>
+                            </a>
+                            <a href="#" class="portfolio-link">
+                                <i class="bi bi-github"></i>
+                                <span>View Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <!-- <div class="portfolio-item" data-category="backend,frontend">
+                    <div class="portfolio-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>E-Signature Integration</h3>
+                        <p>Integrated e-signature solutions for secure electronic signatures. Developed a servlet for e-signature provider callbacks with real-time updates.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">OAuth</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="portfolio.html#project3" class="portfolio-link">
+                                <i class="bi bi-eye"></i>
+                                <span>View Details</span>
+                            </a>
+                            <a href="#" class="portfolio-link">
+                                <i class="bi bi-github"></i>
+                                <span>View Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            
+            <div class="portfolio-cta">
+                <a href="portfolio.html" class="btn-portfolio">
+                    <i class="bi bi-collection"></i>
+                    <span>View All Projects</span>
+                </a>
+            </div>
         </section>
+        
 
         <section class="separator">
             <img src="./assets/images/separator.svg" alt="" srcset="">
@@ -362,12 +439,40 @@
 
         <section id="education">
             <h2>Education</h2>
-            <div class="education-item">
-                <h3>B.Tech in Information and Communication Technology</h3>
-                <p>DA-IICT</p>
-                <p>Aug 2018 – May 2022 | Gandhinagar, Gujarat, India</p>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>B.Tech in Information and Communication Technology</h3>
+                        <div class="education-meta">
+                            <span class="education-institution">
+                                <i class="bi bi-building"></i> DA-IICT
+                            </span>
+                            <span class="education-period">
+                                <i class="bi bi-calendar3"></i> Aug 2018 – May 2022
+                            </span>
+                            <span class="education-location">
+                                <i class="bi bi-geo-alt"></i> Gandhinagar, Gujarat, India
+                            </span>
+                        </div>
+                        <div class="education-details">
+                            <p>Studied core computer science subjects including Data Structures, Algorithms, Database Management, Computer Networks, and Software Engineering.</p>
+                            <div class="education-highlights">
+                                <span class="highlight-tag">Data Structures</span>
+                                <span class="highlight-tag">Algorithms</span>
+                                <span class="highlight-tag">Web Development</span>
+                                <span class="highlight-tag">Machine Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- You can add more education items if needed -->
+                <!-- <div class="education-item">...</div> -->
             </div>
-        </section>
+        </section>        
 
         <section class="separator">
             <img src="./assets/images/separator.svg" alt="" srcset="">
@@ -375,23 +480,69 @@
 
         <section id="contact">
             <h2>Get in touch</h2>
+            <div class="contact-intro">
+                <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+            </div>
+            
             <div class="contact-container">
-                <div class="contact-info">
-                    <p>Email: maharshivaghela1712@gmail.com</p>
-                    <p>Phone: +91-9712209887</p>
+                <div class="contact-card contact-info">
+                    <div class="contact-card-header">
+                        <i class="bi bi-envelope-paper-heart"></i>
+                        <h3>Contact Information</h3>
+                    </div>
+                    <div class="contact-card-content">
+                        <div class="contact-detail">
+                            <i class="bi bi-envelope"></i>
+                            <span>maharshivaghela1712@gmail.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="bi bi-telephone"></i>
+                            <span>+91-9712209887</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="bi bi-geo-alt"></i>
+                            <span>Ahmedabad, Gujarat, India</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-links">
-                    <p>You may also find me on these platforms!</p>
-                    <ul>
-                        <li><a href="https://www.linkedin.com/in/maharshi-vaghela-17122000"><i
-                                    class="bi bi-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="https://github.com/maharshi1712"><i class="bi bi-github"></i> GitHub</a></li>
-                    </ul>
+                
+                <div class="contact-card contact-links">
+                    <div class="contact-card-header">
+                        <i class="bi bi-globe"></i>
+                        <h3>Find Me Online</h3>
+                    </div>
+                    <div class="contact-card-content">
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/maharshi-vaghela-17122000" class="social-link linkedin">
+                                <i class="bi bi-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/maharshi1712" class="social-link github">
+                                <i class="bi bi-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="mailto:maharshivaghela1712@gmail.com" class="social-link email">
+                                <i class="bi bi-envelope"></i>
+                                <span>Email</span>
+                            </a>
+                            <a href="./assets/Maharshi_s_Resume.pdf" download="Maharshi_Vaghela_CV.pdf" class="social-link resume">
+                                <i class="bi bi-file-earmark-person"></i>
+                                <span>Download CV</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <div class="contact-cta">
+                <a href="mailto:maharshivaghela1712@gmail.com" class="btn-contact">
+                    <i class="bi bi-send"></i> Send Message
+                </a>
+            </div>
+            
             <hr id="separator">
-            <p id="copyright">2025 | Designed and Coded with ❤ by <br>Maharshi Vaghela</p>
-        </section>
+            <p id="copyright">2025 | Designed and Coded with <i class="bi bi-heart-fill pulse"></i> by <br>Maharshi Vaghela</p>
+        </section>        
     </div>
 
 
